@@ -6,6 +6,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Camera/CameraActor.h"
 
+#include "NavMesh/NavMeshBoundsVolume.h"
+
 #include "Paddle.h"
 #include "Ball.h"
 
@@ -22,6 +24,7 @@ void APaddlePlayerController::SetupInputComponent()
 	EnableInput(this);
 
 	InputComponent->BindAxis("Move", this, &APaddlePlayerController::Move);
+	InputComponent->BindAxis("MoveVer", this, &APaddlePlayerController::MoveVer);
 
 	InputComponent->BindAction("Launch", IE_Pressed, this, &APaddlePlayerController::Lanch);
 
@@ -49,6 +52,18 @@ void APaddlePlayerController::Move(float _AxisValue)
 
 	if (MyPawn) {
 		MyPawn->Move(_AxisValue);//permitiendo implementar codigo para que se pueda mover el objeto a partir de player controller
+	}
+
+
+}
+
+void APaddlePlayerController::MoveVer(float _VerAxisValue)
+{
+
+	auto MyPawn = Cast<APaddle>(GetPawn());
+
+	if (MyPawn) {
+		MyPawn->MoveVer(_VerAxisValue);//permitiendo implementar codigo para que se pueda mover el objeto a partir de player controller
 	}
 
 }

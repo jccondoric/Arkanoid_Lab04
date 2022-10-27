@@ -24,6 +24,7 @@ class ARKANOID_LAB04_API APaddlePlayerController : public APlayerController
 protected :
 	virtual void BeginPlay() override;
 	void Move(float _AxisValue);
+	void MoveVer(float _VerAxisValue);
 
 	void Lanch();
 
@@ -34,6 +35,7 @@ protected :
 	ABall* MyBall;
 	FVector SpawnLocation = FVector(10.0f, 0.0f, 40.0f);
 	FRotator SpawnRotator = FRotator(0.0f, 0.0f, 0.0f);
+
 	FActorSpawnParameters SpawnInfo;
 public:
 	void SpawnNewBall();

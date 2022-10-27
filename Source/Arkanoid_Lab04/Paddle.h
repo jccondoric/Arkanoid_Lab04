@@ -33,10 +33,14 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	///////
+	
+	//////
+	
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	//virtual por que  Cuando la hereden sus clases hijas puedan modificarla (Recarguen)
 	virtual void Move(float _AxisValue);//Funcion para Mover la Paleta
-
+	virtual void MoveVer(float _VerAxisValue);
 };

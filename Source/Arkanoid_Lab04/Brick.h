@@ -15,6 +15,9 @@ public:
 	// Sets default values for this actor's properties
 	ABrick();
 
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
+		float MoveSpeed;//Velocidad para que se mueva
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -28,9 +31,21 @@ protected:
 		void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndexType, bool bFromSweet, const FHitResult& SweepResult);
 
 	void DestroyBrick();
+	//////////////////////////
+private:
+	float Velocity;
+//private:
+//	ABrick* cubo;
+//	FVector posiciones;
+//	UPROPERTY(EditAnywhere)
+//	int velocidad = 1;
 
 public:	
+	int direccion;
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	/*static const FName MoveForwardBinding;
+	static const FName MoveRightBinding;*/
 
 };

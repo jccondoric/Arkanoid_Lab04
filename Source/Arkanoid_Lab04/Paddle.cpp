@@ -18,8 +18,11 @@ APaddle::APaddle()
 	SM_Paddle->SetConstraintMode(EDOFMode::XZPlane);//PAra que trabeje en el plano XZ
 	SM_Paddle->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);//Va a controlar la collisones fisicas y de lugar(programable)
 	SM_Paddle->SetCollisionProfileName(TEXT("PhisycActor"));//Nombre para esa collision
-
+	
+	//
 	FloatingMovement = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("Flaoting pow movement"));
+
+	
 
 }
 
@@ -34,6 +37,8 @@ void APaddle::BeginPlay()
 void APaddle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	////////////////////////////////
+	
 
 }
 
@@ -50,6 +55,19 @@ void APaddle::Move(float _AxisValue)
 	/*Crea un vector con el valor que va a recoger del eje x, va a crear un vector y le va aplicar moviento
 	al objeto de entrada(Pawn objeto de entrada)
 	*/
-	AddMovementInput(FVector(_AxisValue, 0.0f, 0.0f), 1.0f, false);
+
+	FVector NewLocation = GetActorLocation();
+
+	AddMovementInput(FVector(_AxisValue, 0.0f, 0.0f ), 1.0f, false);
+}
+
+void APaddle::MoveVer(float _VerAxisValue)
+{
+	//LLamando al metodo addmovementimput
+	/*Crea un vector con el valor que va a recoger del eje x, va a crear un vector y le va aplicar moviento
+	al objeto de entrada(Pawn objeto de entrada)
+	*/
+	FVector NewLocation = GetActorLocation();
+	AddMovementInput(FVector(0.0f, 0.0f, _VerAxisValue), 1.0f, false);
 }
 
