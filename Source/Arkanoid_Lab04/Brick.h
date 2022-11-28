@@ -21,6 +21,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		UStaticMeshComponent* SM_Brick;
 
@@ -31,16 +32,24 @@ protected:
 		void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndexType, bool bFromSweet, const FHitResult& SweepResult);
 
 	void DestroyBrick();
+protected:
+	UFUNCTION()
+	void EnergyBrick(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndexType, bool bFromSweet, const FHitResult& SweepResult);
 	//////////////////////////
 private:
 	float Velocity;
+public:
+	float VidaBrick;
+	float ValorPuntaje;
 //private:
 //	ABrick* cubo;
 //	FVector posiciones;
 //	UPROPERTY(EditAnywhere)
 //	int velocidad = 1;
 
+
 public:	
+	//esta es una propiedad del objeto que se vincula a la variable de dirección en el Brick.cpp 
 	int direccion;
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

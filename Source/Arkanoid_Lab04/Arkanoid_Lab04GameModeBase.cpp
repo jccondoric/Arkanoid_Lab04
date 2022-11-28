@@ -3,9 +3,23 @@
 
 #include "Arkanoid_Lab04GameModeBase.h"
 #include "Brick.h"
+#include "GunAdapter.h"
+#include "Shooter.h"
+
+AArkanoid_Lab04GameModeBase::AArkanoid_Lab04GameModeBase()
+{
+	PrimaryActorTick.bCanEverTick = true;
+}
+
 void AArkanoid_Lab04GameModeBase::BeginPlay()
 {
 	Super::BeginPlay();
+	AGunAdapter* GunAdapter = GetWorld()->SpawnActor<AGunAdapter>(AGunAdapter::StaticClass());
+	//Spawn the Shooter and set the Gun Adapter
+	Shooter = GetWorld()->SpawnActor<AShooter>(AShooter::StaticClass());
+	Shooter->SetSlingShot(GunAdapter);
+	//Shoot
+	Shooter->Sling();
 
 
 	const FVector Ubicacion(20.0f, 50.0f,100.0f);
@@ -13,11 +27,9 @@ void AArkanoid_Lab04GameModeBase::BeginPlay()
 
 	UWorld* const World = GetWorld();
 
-	if (World != nullptr) {
-		//Spawn o generacion  o creacion  de actores en tiempo de ejecucion
-		ladrillo = World->SpawnActor<ABrick>(Ubicacion, Rotacion);
-		ladrillo->SetHidden(false);
-		GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Cyan, TEXT("Actor ladrillo Creado"));
-	};
+}
 
+void AArkanoid_Lab04GameModeBase::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
 }

@@ -4,6 +4,8 @@
 #include "Paddle.h"
 #include "GameFramework/FloatingPawnMovement.h"
 #include "Components/StaticMeshComponent.h"
+#include "NavMesh/NavMeshBoundsVolume.h"
+
 
 // Sets default values
 APaddle::APaddle()
@@ -21,8 +23,8 @@ APaddle::APaddle()
 	
 	//
 	FloatingMovement = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("Flaoting pow movement"));
-
 	
+	direccion = 1;
 
 }
 
@@ -37,8 +39,28 @@ void APaddle::BeginPlay()
 void APaddle::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	////////////////////////////////
-	
+
+	//crear una nueva ubicación que se modificará
+	FVector NewLocation = GetActorLocation();
+
+
+	//comprueba si el Brick ha superado la marca de 400 unidades
+	if (NewLocation.Z > 400) {
+
+		//si es así... invierte su dirección actual ....
+		//esto hará que baje si se establece inicialmente en 1 y se inicializa para estar dentro del movimiento
+		direccion = direccion * -1;
+	}
+	//comprueba si el Brick ha bajado de la marca de 260 unidades
+	if (NewLocation.Z < 260) {
+
+		//si el brikk está a menos de 260 unidades debería empezar a subir
+		direccion = direccion * -1;
+	}
+	//reasignando la NuevaLocalización para que se mueva 0,4 unidades en la dirección
+	/*NewLocation.Z += direccion * 0.4f;*/
+
+	SetActorLocation(NewLocation);
 
 }
 
@@ -69,5 +91,7 @@ void APaddle::MoveVer(float _VerAxisValue)
 	*/
 	FVector NewLocation = GetActorLocation();
 	AddMovementInput(FVector(0.0f, 0.0f, _VerAxisValue), 1.0f, false);
+	
+
 }
 
