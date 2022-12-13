@@ -1,0 +1,48 @@
+Begin Object Class=/Script/Engine.Material Name="M_Naranja"
+   Begin Object Class=/Script/Engine.MaterialExpressionConstant Name="MaterialExpressionConstant_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionConstant3Vector Name="MaterialExpressionConstant3Vector_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_0"
+   End Object
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfoWithPrimitive Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Name="MaterialExpressionConstant_0"
+      R=25.000000
+      MaterialExpressionEditorX=-432
+      MaterialExpressionEditorY=176
+      MaterialExpressionGuid=CD4DB0D8439E5AF7CAE644AB44BE727A
+      Material=Material'"M_Naranja"'
+   End Object
+   Begin Object Name="MaterialExpressionConstant3Vector_0"
+      Constant=(R=0.796875,G=0.170324,B=0.000000,A=0.000000)
+      MaterialExpressionEditorX=-576
+      MaterialExpressionEditorY=32
+      MaterialExpressionGuid=709FB67448CC082C9083668C19463003
+      Material=Material'"M_Naranja"'
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_0"
+      A=(Expression=MaterialExpressionConstant3Vector'"M_Naranja:MaterialExpressionConstant3Vector_0"')
+      B=(Expression=MaterialExpressionConstant'"M_Naranja:MaterialExpressionConstant_0"')
+      MaterialExpressionEditorX=-336
+      MaterialExpressionEditorY=48
+      MaterialExpressionGuid=1A4778124DD5439C5C5FBBB12E7AE299
+      Material=Material'"M_Naranja"'
+   End Object
+   Begin Object Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   EmissiveColor=(Expression=MaterialExpressionMultiply'"MaterialExpressionMultiply_0"')
+   BlendMode=BLEND_Translucent
+   ShadingModel=MSM_Unlit
+   ShadingModels=(ShadingModelField=1)
+   bUsedWithStaticLighting=True
+   EditorX=-192
+   Expressions(0)=MaterialExpressionMultiply'"MaterialExpressionMultiply_0"'
+   Expressions(1)=MaterialExpressionConstant3Vector'"MaterialExpressionConstant3Vector_0"'
+   Expressions(2)=MaterialExpressionConstant'"MaterialExpressionConstant_0"'
+   bCanMaskedBeAssumedOpaque=True
+   StateId=1A739638416D0163B1D5E6958A607F4C
+   CachedExpressionData=(QualityLevelsUsed=(False,False,False,False))
+   ThumbnailInfo=SceneThumbnailInfoWithPrimitive'"SceneThumbnailInfoWithPrimitive_0"'
+   LightingGuid=C0597E644CB1D418D7A75183C62D0409
+End Object

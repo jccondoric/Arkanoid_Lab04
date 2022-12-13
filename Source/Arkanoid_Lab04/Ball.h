@@ -40,19 +40,6 @@ public:
 	 
 	UFUNCTION()
 		UStaticMeshComponent* GetBall();
-///////////////////////////////////////////////////////////
-//public:
-//	UPROPERTY(EditAnywhere, Category = Movement)
-//		float AngleAxis;
-//
-//	UPROPERTY(EditAnywhere, Category = Movement)
-//		FVector Dimensions;
-//
-//	UPROPERTY(EditAnywhere, Category = Movement)
-//		FVector AxisVector;
-//
-//	UPROPERTY(EditAnywhere, Category = Movement)
-//		float Multiplier;
 
 
 

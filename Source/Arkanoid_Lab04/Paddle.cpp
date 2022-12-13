@@ -5,6 +5,7 @@
 #include "GameFramework/FloatingPawnMovement.h"
 #include "Components/StaticMeshComponent.h"
 #include "NavMesh/NavMeshBoundsVolume.h"
+#include "Components/PrimitiveComponent.h"
 
 
 // Sets default values
@@ -26,6 +27,10 @@ APaddle::APaddle()
 	
 	direccion = 1;
 
+
+	//Inventario
+	PaddleInventory = CreateDefaultSubobject<UInventoryComponent>(TEXT("Paddle Inventory"));
+
 }
 
 // Called when the game starts or when spawned
@@ -33,6 +38,26 @@ void APaddle::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void APaddle::TakeItem(AInventoryActor* InventoryItem)
+{
+	InventoryItem->PickUp();//Le estoy diciendo a este objeto  que tiene que desaparecer dejar hacer los ticks y sus collisiones se desactiva
+	PaddleInventory->AddToInventory(InventoryItem);
+}
+
+void APaddle::DropItem()
+{	
+
+}
+
+void APaddle::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
+{
+	AInventoryActor* InventoryItem = Cast<AInventoryActor>(Other);
+
+	if (InventoryItem != nullptr) {
+		TakeItem(InventoryItem);
+	}
 }
 
 // Called every frame

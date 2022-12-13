@@ -89,13 +89,13 @@ void ABall::Tick(float DeltaTime)
 
 void ABall::Launch()
 {
-	if (!BallLaunched) {
+		if (!BallLaunched) {
 		
-		SM_Ball->AddImpulse(FVector(140.0f, 0.0f, 130.0f), FName(), true);
-		BallLaunched = true;
+			SM_Ball->AddImpulse(FVector(140.0f, 0.0f, 130.0f), FName(), true);
+			BallLaunched = true;
 
 		
-	}
+		}
 }
 
 UStaticMeshComponent* ABall::GetBall()

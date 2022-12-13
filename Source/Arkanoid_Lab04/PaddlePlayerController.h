@@ -27,8 +27,9 @@ protected :
 	void MoveVer(float _VerAxisValue);
 
 	void Lanch();
+	
 
-
+	
 	UPROPERTY(EditAnywhere)
 		TSubclassOf<ABall> BallObj;
 
@@ -37,6 +38,9 @@ protected :
 	FRotator SpawnRotator = FRotator(0.0f, 0.0f, 0.0f);
 
 	FActorSpawnParameters SpawnInfo;
+
+	
+
 public:
 	void SpawnNewBall();
 

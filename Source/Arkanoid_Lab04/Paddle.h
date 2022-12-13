@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "InventoryComponent.h"
 #include "Paddle.generated.h"
-
 class UFloatingPawnMovement;//Declaracion antecedida, es una clase
 UCLASS()
 class ARKANOID_LAB04_API APaddle : public APawn
@@ -27,7 +27,15 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		UFloatingPawnMovement* FloatingMovement;//Movimiento de flotacion
 
-
+	UPROPERTY()
+		UInventoryComponent* PaddleInventory;
+	UFUNCTION()
+		void TakeItem(AInventoryActor* InventoryItem);//Para comer
+	UFUNCTION()
+		void DropItem();//Para soltar
+	UFUNCTION()
+		virtual void NotifyHit(class UPrimitiveComponent* MyComp, AActor* Other, class UPrimitiveComponent* OtherComp, bool bSelfMoved,
+			FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
 
 public:	
 	// Called every frame

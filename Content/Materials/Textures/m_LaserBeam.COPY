@@ -1,0 +1,51 @@
+Begin Object Class=/Script/Engine.Material Name="m_LaserBeam"
+   Begin Object Class=/Script/Engine.MaterialExpressionConstant Name="MaterialExpressionConstant_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_0"
+   End Object
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfoWithPrimitive Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Name="MaterialExpressionConstant_0"
+      R=25.000000
+      MaterialExpressionEditorX=-272
+      MaterialExpressionEditorY=272
+      MaterialExpressionGuid=F752C8264F260F96BA27538614C6B084
+      Material=Material'"m_LaserBeam"'
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_0"
+      A=(Expression=MaterialExpressionTextureSample'"m_LaserBeam:MaterialExpressionTextureSample_0"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      B=(Expression=MaterialExpressionConstant'"m_LaserBeam:MaterialExpressionConstant_0"')
+      MaterialExpressionEditorX=-48
+      MaterialExpressionEditorY=96
+      MaterialExpressionGuid=B2343E2340F6AE842C0911AD3CE517E8
+      Material=Material'"m_LaserBeam"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_0"
+      Texture=Texture2D'"/Game/Materials/Textures/LaserBeam.LaserBeam"'
+      MaterialExpressionEditorX=-368
+      MaterialExpressionEditorY=96
+      MaterialExpressionGuid=EEC0470C4933E86472BAD6A34E09DE91
+      Material=Material'"m_LaserBeam"'
+   End Object
+   Begin Object Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   BaseColor=(Expression=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_0"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+   EmissiveColor=(Expression=MaterialExpressionMultiply'"MaterialExpressionMultiply_0"')
+   Opacity=(Expression=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_0"',OutputIndex=4,Mask=1,MaskA=1)
+   BlendMode=BLEND_Translucent
+   ShadingModel=MSM_Unlit
+   ShadingModels=(ShadingModelField=1)
+   EditorX=256
+   EditorY=-16
+   Expressions(0)=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_0"'
+   Expressions(1)=MaterialExpressionConstant'"MaterialExpressionConstant_0"'
+   Expressions(2)=MaterialExpressionMultiply'"MaterialExpressionMultiply_0"'
+   bCanMaskedBeAssumedOpaque=True
+   StateId=BCB281BD4A711DF8BB2B80A5E62A82CE
+   CachedExpressionData=(ReferencedTextures=(Texture2D'"/Game/Materials/Textures/LaserBeam.LaserBeam"'),QualityLevelsUsed=(False,False,False,False))
+   ReferencedTextureGuids(0)=FC13F64F4A1A2B3102EE2FB7EF9D774C
+   ThumbnailInfo=SceneThumbnailInfoWithPrimitive'"SceneThumbnailInfoWithPrimitive_0"'
+   LightingGuid=E941327F4410A9619F223EADAB6E64B1
+End Object

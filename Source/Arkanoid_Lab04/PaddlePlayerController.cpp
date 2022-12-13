@@ -73,6 +73,7 @@ void APaddlePlayerController::Lanch()
 	MyBall->Launch();
 }
 
+
 void APaddlePlayerController::SpawnNewBall()
 {
 
